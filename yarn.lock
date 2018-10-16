@@ -3388,9 +3388,9 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-typeorm@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.2.7.tgz#4bbbace80dc91b1303be13f42d44ebf01d1b2558"
+typeorm@0.3.0-alpha.10:
+  version "0.3.0-alpha.10"
+  resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.3.0-alpha.10.tgz#31909d4dc99e1c406cb36c785cdaa23b1d7fc77b"
   dependencies:
     app-root-path "^2.0.1"
     buffer "^5.1.0"

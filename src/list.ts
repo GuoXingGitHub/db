@@ -1,4 +1,4 @@
-import { Repository, FindManyOptions } from 'typeorm';
+import { Repository, FindOptions } from 'typeorm';
 
 /**
  * 列出表数据
@@ -8,11 +8,11 @@ import { Repository, FindManyOptions } from 'typeorm';
  */
 export async function list<T>(
   repo: Repository<T>,
-  listOptions: FindManyOptions<T> = {},
+  listOptions: FindOptions<T> = {},
   paginate: IPaginateOptions = { limit: 10, page: 1 }
 ): Promise<IListResult<T>> {
-  const options: FindManyOptions<T> = Object.assign({}, listOptions);
-  const total = await repo.count(options);
+  const options: FindOptions<T> = Object.assign({}, listOptions);
+  const total = await repo.count(options.where || {});
   const limit = paginate.limit;
   const page = paginate.page;
   const pages = Math.ceil(total / paginate.limit);
