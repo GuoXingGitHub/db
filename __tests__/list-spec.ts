@@ -1,5 +1,11 @@
 import { list } from '../src/list';
-import { Entity, PrimaryGeneratedColumn, Column, createConnection, Connection } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  createConnection,
+  Connection,
+} from 'typeorm';
 import { SqliteConnectionOptions } from 'typeorm/driver/sqlite/SqliteConnectionOptions';
 
 const LIST_OPTIONS_KEY = 'x-corelink-list-options';
@@ -7,7 +13,6 @@ const PAGINATE_KEY = 'x-corelink-paginate';
 
 @Entity()
 class User {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -19,13 +24,12 @@ class User {
 
   @Column()
   age: number;
-
 }
 
 // Records in database
 // [
-//   {"age": 30, "gender": 1, "id": 1, "username": "kuyoonjo"}, 
-//   {"age": 20, "gender": 1, "id": 2, "username": "tom"}, 
+//   {"age": 30, "gender": 1, "id": 1, "username": "kuyoonjo"},
+//   {"age": 20, "gender": 1, "id": 2, "username": "tom"},
 //   {"age": 8, "gender": 0, "id": 3, "username": "kitty"},
 // ]
 

@@ -9,7 +9,7 @@ import { Repository, FindManyOptions } from 'typeorm';
 export async function list<T>(
   repo: Repository<T>,
   listOptions: FindManyOptions<T> = {},
-  paginate: IPaginateOptions = { limit: 10, page: 1 },
+  paginate: IPaginateOptions = { limit: 10, page: 1 }
 ): Promise<IListResult<T>> {
   const options: FindManyOptions<T> = Object.assign({}, listOptions);
   const total = await repo.count(options);
