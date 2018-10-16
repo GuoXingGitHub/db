@@ -28,6 +28,10 @@
   version "8.10.36"
   resolved "https://registry.npmjs.org/@types/node/-/node-8.10.36.tgz#eac05d576fbcd0b4ea3c912dc58c20475c08d9e4"
 
+"@types/zen-observable@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.npmjs.org/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -3388,10 +3392,11 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-typeorm@0.3.0-alpha.10:
-  version "0.3.0-alpha.10"
-  resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.3.0-alpha.10.tgz#31909d4dc99e1c406cb36c785cdaa23b1d7fc77b"
+typeorm@^0.3.0-alpha.21:
+  version "0.3.0-alpha.21"
+  resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.3.0-alpha.21.tgz#74416297b1711df828de0e8521d309998863bdb3"
   dependencies:
+    "@types/zen-observable" "^0.8.0"
     app-root-path "^2.0.1"
     buffer "^5.1.0"
     chalk "^2.3.2"
@@ -3405,6 +3410,7 @@ typeorm@0.3.0-alpha.10:
     xml2js "^0.4.17"
     yargonaut "^1.1.2"
     yargs "^11.1.0"
+    zen-observable "^0.8.9"
 
 typescript@^2.3.0:
   version "2.9.2"
@@ -3667,3 +3673,7 @@ yargs@^11.0.0, yargs@^11.1.0:
 yn@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
+
+zen-observable@^0.8.9:
+  version "0.8.9"
+  resolved "https://registry.npmjs.org/zen-observable/-/zen-observable-0.8.9.tgz#0475c760ff0eda046bbdfa4dc3f95d392807ac53"
