@@ -1,12 +1,12 @@
-import { parseFunctions, FUNCTION_NAME } from "../src";
-import { IsNull } from "typeorm";
+import { parseFunctions, FUNCTION_NAME } from '../src';
+import { IsNull } from 'typeorm';
 
 test('Should parse IsNull()', async () => {
   const b = {
     b1: 1,
     b2: 2,
     b3: 3,
-  }
+  };
   const where = {
     a: 1,
     b,

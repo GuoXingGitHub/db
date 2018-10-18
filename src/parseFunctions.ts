@@ -1,5 +1,5 @@
-import { IsNull, Not } from "typeorm";
-import { isObject } from "util";
+import { IsNull, Not } from 'typeorm';
+import { isObject } from 'util';
 
 export enum FUNCTION_NAME {
   IsNull,
@@ -7,11 +7,14 @@ export enum FUNCTION_NAME {
 }
 
 /**
- * 
+ *
  * @param where 前端传进的where对象
  * @param functionNames 需要生成的方法列表
  */
-export function parseFunctions(where: any, ...functionNames: FUNCTION_NAME[]): any {
+export function parseFunctions(
+  where: any,
+  ...functionNames: FUNCTION_NAME[]
+): any {
   for (const k of Object.keys(where)) {
     if (isObject(where[k])) {
       where[k] = parseFunctions(where[k], ...functionNames);
@@ -37,8 +40,7 @@ function parse(obj: any, k: string, functionNames: FUNCTION_NAME[]) {
 }
 
 function parseIsNull(obj: any, k: string) {
-  if (obj[k] === '$IsNull()$')
-    return IsNull();
+  if (obj[k] === '$IsNull()$') return IsNull();
   return obj[k];
 }
 
