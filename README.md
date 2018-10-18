@@ -78,3 +78,22 @@ const res = await list(up, {}, { limit: 1, page: 2 });
 ```
 
 更多例子请参考`__tests__`目录下的`list-spec.ts`
+
+## parseFunctions
+将前端的特定参数转成FindOperator类型
+
+### 定义
+```ts
+/**
+ * 
+ * @param where 前端传进的where对象
+ * @param functionNames 需要生成的方法列表
+ */
+export function parseFunctions(where: any, ...functionNames: FUNCTION_NAME[]): any
+```
+
+### 使用方法
+```ts
+const where = { a: '$IsNull()$' };
+parseFunctions(where, FUNCTION_NAME.IsNull);
+```
