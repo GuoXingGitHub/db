@@ -1,5 +1,16 @@
 import { parseFunctions, FUNCTION_NAME } from '../src';
-import { IsNull, Like, MoreThan, LessThan, Equal, Between, In, Any, Raw, Not } from 'typeorm';
+import {
+  IsNull,
+  Like,
+  MoreThan,
+  LessThan,
+  Equal,
+  Between,
+  In,
+  Any,
+  Raw,
+  Not,
+} from 'typeorm';
 
 test('Should parse IsNull()', async () => {
   const b = {
@@ -41,7 +52,12 @@ test('Should parse LessThan() MoreThan() Equal()', async () => {
     b: '$MoreThan(2)$',
     c: '$Equal("3")$',
   };
-  parseFunctions(where, FUNCTION_NAME.LessThan, FUNCTION_NAME.MoreThan, FUNCTION_NAME.Equal);
+  parseFunctions(
+    where,
+    FUNCTION_NAME.LessThan,
+    FUNCTION_NAME.MoreThan,
+    FUNCTION_NAME.Equal
+  );
   expect(where.a).toMatchObject(LessThan(1));
   expect(where.b).toMatchObject(MoreThan(2));
   expect(where.c).toMatchObject(Equal('3'));
@@ -53,7 +69,12 @@ test('Should parse Between() In() Any()', async () => {
     b: '$In([1, 2])$',
     c: '$Any([1, 2, 3])$',
   };
-  parseFunctions(where, FUNCTION_NAME.Between, FUNCTION_NAME.In, FUNCTION_NAME.Any);
+  parseFunctions(
+    where,
+    FUNCTION_NAME.Between,
+    FUNCTION_NAME.In,
+    FUNCTION_NAME.Any
+  );
   expect(where.a).toMatchObject(Between(1, 2));
   expect(where.b).toMatchObject(In([1, 2]));
   expect(where.c).toMatchObject(Any([1, 2, 3]));
