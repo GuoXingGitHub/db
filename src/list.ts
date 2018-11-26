@@ -11,7 +11,7 @@ export async function list<T>(
   listOptions: FindOptions<T> = {},
   paginate: IPaginateOptions = { limit: 10, page: 1 }
 ): Promise<IListResult<T>> {
-  const options: FindOptions<T> = Object.assign({}, listOptions);
+  const options: FindOptions<T> = { ...listOptions };
   const total = await repo.count(options.where || {});
   const limit = paginate.limit;
   const page = paginate.page;

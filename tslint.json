@@ -6,6 +6,11 @@
   "rules": {
     "prefer-conditional-expression": false,
     "curly": false,
-    "ordered-imports":false
+    "ordered-imports": false,
+    "no-submodule-imports": false,
+    "object-literal-sort-keys": false,
+    "no-implicit-dependencies": false,
+    "member-access": false,
+    "no-console": false
   }
 }
