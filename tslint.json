@@ -2,5 +2,10 @@
   "extends": [
     "tslint:latest",
     "tslint-config-prettier"
-  ]
+  ],
+  "rules": {
+    "prefer-conditional-expression": false,
+    "curly": false,
+    "ordered-imports":false
+  }
 }

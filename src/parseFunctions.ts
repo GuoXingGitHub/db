@@ -1,8 +1,9 @@
-import { IsNull, Not } from 'typeorm';
+import { IsNull, Like } from 'typeorm';
 import { isObject } from 'util';
 
 export enum FUNCTION_NAME {
   IsNull,
+  Like,
   // Not,
 }
 
@@ -31,6 +32,9 @@ function parse(obj: any, k: string, functionNames: FUNCTION_NAME[]) {
       case FUNCTION_NAME.IsNull:
         obj[k] = parseIsNull(obj, k);
         break;
+      case FUNCTION_NAME.Like:
+        obj[k] = parseLike(obj, k);
+        break;
       // case FUNCTION_NAME.Not:
       //   obj[k] = parseNot(obj, k, functionNames);
       //   break;
@@ -42,6 +46,12 @@ function parse(obj: any, k: string, functionNames: FUNCTION_NAME[]) {
 function parseIsNull(obj: any, k: string) {
   if (obj[k] === '$IsNull()$') return IsNull();
   return obj[k];
+}
+
+function parseLike(obj: any, k: string) {
+  const match = /^\$Like\(["'](.*?)["']\)\$$/.exec(obj[k]);
+  if (!match) return obj[k];
+  return Like(match[1]);
 }
 
 // function parseNot(obj: any, k: string, functionNames: FUNCTION_NAME[]) {
