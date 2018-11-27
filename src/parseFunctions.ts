@@ -142,7 +142,7 @@ function parseAny(obj: any, k: string) {
 function parseRaw(obj: any, k: string) {
   const match = /^\$Raw\(["'](.*?)["']\)\$$/.exec(obj[k]);
   if (!match) return obj[k];
-  return Raw(match[1]);
+  return _ => Raw(match[1]);
 }
 
 function parseNot(obj: any, k: string, functionNames: FUNCTION_NAME[]) {

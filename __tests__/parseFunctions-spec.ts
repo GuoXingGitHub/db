@@ -81,11 +81,11 @@ test('Should parse Between() In() Any()', async () => {
 });
 
 test('Should parse Raw()', async () => {
-  const where = {
+  const where: any = {
     a: '$Raw("xxx")$',
   };
   parseFunctions(where, FUNCTION_NAME.Raw);
-  expect(where.a).toMatchObject(Raw('xxx'));
+  expect(where.a()).toMatchObject(Raw('xxx'));
 });
 
 test('Should parse Not()', async () => {
